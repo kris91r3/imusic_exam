@@ -14,10 +14,10 @@ function AppetizerTwo() {
       <div className="store-img pladespiller-img"></div>
       <div className="store-txt-wrapper background2">
         <div className="store-txt">
-          <h3>
+          <h2>
             Del dine øjeblikke og skab minder med vennerne når pladespilleren
             fylder rummet med nostalgiske toner, og atmosfærisk musik.
-          </h3>
+          </h2>
           <p>
             Her finder du vores store udvalg af pladespillere. Med en
             pladespiller kan du få den autentiske og nostalgiske lyd fra

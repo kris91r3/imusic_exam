@@ -15,10 +15,10 @@ function AppetizerOne() {
       <div className="store-img butik-img"></div>
       <div className="store-txt-wrapper background1">
         <div className="store-txt">
-          <h3>
+          <h2>
             Med over 300.000 vinyler i vores udvalg har vi helt sikkert noget,
             der vil begejstre din musiksmag
-          </h3>
+          </h2>
           <p>
             Se vores brede udvalg af vinyler, her er du sikker på at kunne finde
             både nye og populære titler, sjældne udgivelser, og nichegenrer til
