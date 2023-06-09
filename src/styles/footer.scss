@@ -1,0 +1,208 @@
+//import af stylesheet med variables (colors, font)
+@import "partials/variables";
+
+//container der holder footer content
+.footer-wrapper {
+  height: fit-content;
+  background-color: $coal;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+  //selve footeren
+  footer {
+    margin: 0px 30px 0px 30px;
+    //footer informations del (links til FAQ, kontakt, mv.)
+    .information {
+      margin-bottom: 50px;
+      p {
+        color: $offwhite;
+        font-size: $font-s-p;
+        line-height: normal;
+      }
+      //overskrift "information"
+      .heading {
+        margin: 0;
+        padding-top: 50px;
+        font-size: $font-s-h3-mob;
+        font-weight: $font-weight-semib;
+      }
+    }
+    //some del af footeren med logoer
+    .some {
+      margin-bottom: 50px;
+      cursor: pointer;
+      //"SoMe"
+      p {
+        color: $offwhite;
+        font-size: $font-s-h3-mob;
+        font-weight: $font-weight-semib;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+      .some-ikoner svg {
+        margin-right: 12px;
+      }
+    }
+    //nyhedsbrev form
+    form {
+      margin-bottom: 50px;
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        label {
+          color: $offwhite;
+          font-weight: $font-weight-semib;
+          font-size: $font-s-h3-web;
+        }
+        input {
+          background-color: $offwhite;
+          border: none;
+          border-radius: none;
+          padding: 10px;
+        }
+        button {
+          background-color: $bloodorange;
+          color: $coal;
+          border: none;
+          padding: 10px;
+          font-size: $font-s-btn-txt;
+        }
+      }
+    }
+    //imusic hvidt logo
+    .hvidt-logo {
+      margin-bottom: 50px;
+      width: 40%;
+      cursor: pointer;
+    }
+    //forskellige ikoner / logoer "stempler"
+    .row-two {
+      .ikoner {
+        .group1 {
+          margin-bottom: 50px;
+          img {
+            width: 20%;
+            object-fit: contain;
+            margin-right: 5px;
+          }
+          .group-one img {
+            margin-bottom: 6px;
+            width: 30%;
+          }
+          .group-two {
+            margin-bottom: 15px;
+            .boghandel {
+              width: 15%;
+              margin-right: 0;
+            }
+          }
+        }
+        .group2 {
+          margin-bottom: 50px;
+          img {
+            width: 10%;
+            object-fit: contain;
+          }
+          .group-three,
+          .group-four {
+            margin-bottom: 10px;
+            display: flex;
+            gap: 3px;
+          }
+          .group-five {
+            display: flex;
+            gap: 3px;
+          }
+        }
+      }
+    }
+  }
+  //copyright del af footer
+  .row-three {
+    .copyright1,
+    .copyright2 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      p {
+        color: $offwhite;
+        font-size: $font-s-lille-p;
+      }
+    }
+  }
+}
+
+/* DESKTOP FOOTER STYLING */
+@media (min-width: 1240px) {
+  .footer-wrapper {
+    footer {
+      .row-one {
+        display: flex;
+        justify-content: space-around;
+        gap: 12px;
+        padding-top: 50px;
+        .information {
+          p.heading {
+            padding-top: 0;
+          }
+        }
+      }
+      .hvidt-logo {
+        margin-bottom: 0;
+        width: 60%;
+      }
+      .row-two {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        .ikoner {
+          grid-column: 2;
+          padding-left: 60px;
+          .group1 {
+            margin-bottom: 50px;
+            img {
+              width: 30%;
+              object-fit: contain;
+              margin-right: 5px;
+            }
+            .group-one img {
+              margin-bottom: 6px;
+              width: 30%;
+            }
+            .group-two {
+              margin-bottom: 15px;
+              .boghandel {
+                width: 20%;
+                margin-right: 0;
+              }
+            }
+          }
+          .group2 {
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            img {
+              width: 15%;
+              object-fit: contain;
+            }
+            .group-three,
+            .group-four {
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .row-three {
+    .copyright1,
+    .copyright2 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      p {
+        color: $offwhite;
+        font-size: $font-s-lille-p;
+      }
+    }
+  }
+}

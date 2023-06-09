@@ -1,0 +1,403 @@
+@import "partials/variables";
+
+/* VINYL SIDE */
+//overskrift
+h1 {
+  font-size: $font-s-h1-mob;
+  margin: 25px;
+  line-height: 1.21875;
+  @media (min-width: 1240px) {
+    margin: auto;
+    margin-bottom: 25px;
+    font-size: $font-s-h1-web;
+  }
+}
+//filtreringsknapper / menu
+.toggle-filter-knapper {
+  /*   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.2); */
+  svg {
+    padding-left: 2px;
+  }
+  button {
+    color: $coal;
+  }
+}
+.filter-btn-wrapper {
+  display: flex;
+  justify-content: end;
+  gap: 6px;
+  margin: 25px;
+
+  @media (min-width: 1240px) {
+    margin: 0px;
+    margin-bottom: 25px;
+  }
+  button {
+    width: 140px;
+    height: 36px;
+    /*     border: 5px solid $bloodorange; */
+    border: 0.5px solid black;
+    /*    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.2); */
+    background-color: transparent;
+    color: $coal;
+  }
+  .active {
+    border: 5px solid $bloodorange;
+  }
+  .filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+  }
+}
+
+//container der holder vinylprodukter
+.vinyl-wrapper {
+  display: flex;
+  flex-wrap: wrap; //nødvendig for at lave responsiv visning uanset vindue størrelse
+  justify-content: center;
+  gap: 10px;
+  margin: 25px 25px 100px 25px;
+  @media (min-width: 1240px) {
+    margin: auto auto 100px auto;
+  }
+  //For at man kan trykke på hele produktboksen er
+  //den omkranset af et link, dette vi fjerner styles fra herunder
+  a {
+    background-color: transparent;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+//Hvert enkelt vinyl card
+.vinyl {
+  flex: 1 0 250px; //vi sætter max størrelsen på den enkelte boks, svarer til grid auto repeat
+  background-color: $softsmoke;
+  padding: 20px;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  //Kunstner & Titel på vinyl card
+  p.kunstner,
+  p.titel {
+    padding-bottom: 6px;
+    margin: 0;
+    font-size: $font-s-h4-mob;
+    color: $coal;
+  }
+  p.kunstner {
+    color: $steelblue;
+    font-weight: $font-weight-bold;
+  }
+  //Pris på vinyl card
+  .pris-wrapper {
+    margin-top: auto;
+    display: flex;
+    .pris {
+      font-size: $font-s-p;
+      font-weight: $font-weight-bold;
+      color: $coal;
+    }
+  }
+  //Produktbillede af vinyl på vinyl card
+  .img-wrapper {
+    .produkt-img {
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+  //Labels på vinyl card - f.eks. limited edition
+  .tags {
+    p {
+      font-size: $font-s-lille-product-banner-txt;
+      line-height: normal;
+      color: $coal;
+    }
+    .tag-wrapper {
+      display: flex;
+      justify-content: end;
+      .edition-p {
+        background-color: $mintgreen;
+        padding: 6px;
+        margin-left: 4px;
+      }
+      .nyhed-p {
+        background-color: $beachyellow;
+        padding: 6px;
+        margin-left: 4px;
+      }
+      .lagerstatus-p {
+        background-color: $skyblue;
+        padding: 6px;
+        margin-left: 4px;
+      }
+      .lav-lagerstatus-p {
+        background-color: $warninggold;
+        padding: 6px;
+        margin-left: 4px;
+        svg {
+          width: 7px;
+          height: 7px;
+        }
+      }
+      //a little cheating fordi... it hurts no one (for at have alignment mellem produkter der har tag og ikke har, og ja det kan løses bedre, men quick fix her)
+      .notag {
+        .notag-p {
+          background-color: transparent;
+          color: transparent;
+          padding: 6px;
+        }
+      }
+    }
+  }
+  //Køb her, bestil, knap på vinyl card
+  .btn-wrapper {
+    margin-top: auto;
+    display: flex;
+  }
+}
+
+////////////////////////////////////////////////////////
+
+/* VINYL SINGLE PAGE */
+//wrapper for single page indhold
+.vinyl-details {
+  margin: 25px;
+  @media (min-width: 1240px) {
+    margin: 0;
+  }
+  //single view section
+  .single-view-section {
+    background-color: $softsmoke;
+    padding: 20px;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    @media (min-width: 762px) {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    //kolonne med produktbillede & figcaption (og del med venner, men kun på desktop, så dens style er længere nede)
+    .left-side-wrapper {
+      // brugt til at skabe ønsket mellemrum, i stedet for at have en høj gap værdi
+      @media (min-width: 762px) {
+        padding: 20px;
+      }
+      // Produktbillede af den valgte vinyl
+      .single-vinyl-img {
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+        //billedetekst, "ved uoverenstemmelse... bla bla"
+        figcaption {
+          font-size: $font-s-lille-p;
+          padding-bottom: 20px;
+        }
+      }
+    }
+    //Kolonne med tekst info, læg i kurv knap, collapsibles
+    .right-side-wrapper {
+      @media (min-width: 762px) {
+        padding: 20px;
+      }
+      //det tekst man kan se (altså alt tekst uden at åbne collapsibles)
+      .info-txt-shown {
+        //Titel på album
+        h1 {
+          font-size: $font-s-h1-mob;
+          line-height: 1.21875;
+          padding: 0;
+          margin: 0;
+          padding-bottom: 20px;
+          @media (min-width: 1240px) {
+            font-size: $font-s-h1-web;
+          }
+        }
+        //Wrapper der bruges til at sætte farvet vinyl label, ved siden af kunstner navn
+        .wrapper {
+          padding-top: 0;
+          margin-top: 0;
+          h2 {
+            font-size: $font-s-h2-mob;
+            color: $steelblue;
+            padding-top: 0;
+            margin-top: 0;
+            @media (min-width: 1240px) {
+              font-size: $font-s-h2-web;
+            }
+          }
+          //Farvet vinyl label (placeret i en div)
+          .farve {
+            margin: 0px 0px 0px 10px;
+            padding: 10px 0px 0px 0px;
+            p {
+              font-size: $font-s-lille-product-banner-txt;
+              line-height: normal;
+              color: $coal;
+              background-color: $velvetpurple;
+              padding: 5px;
+              margin: 0;
+            }
+          }
+        }
+      }
+      //limitid edition tag (placeret i en div)
+      .edition-tag {
+        display: flex;
+        justify-content: start;
+        gap: 4px;
+        p {
+          font-size: $font-s-lille-product-banner-txt;
+          line-height: normal;
+          color: $coal;
+          background-color: $mintgreen;
+          padding: 5px;
+          margin: 0;
+        }
+      }
+      //vinylens pris, og teksten "pr stk"
+      .pris {
+        .pr-stk {
+          font-size: $font-s-lille-p;
+          color: $coal;
+          padding-bottom: 5px;
+          margin-bottom: 0;
+        }
+        .vinyl-pris {
+          font-size: $font-s-p;
+          color: $coal;
+          font-weight: $font-weight-bold;
+          margin-top: 0;
+          @media (min-width: 762px) {
+            font-size: $font-s-h3-web;
+          }
+        }
+      }
+      //Læs mere - description tekst omkring valgte vinyl
+      .read-more {
+        padding-bottom: 30px;
+        cursor: pointer;
+        p {
+          font-size: $font-s-link;
+          @media (min-width: 762px) {
+            inline-size: 500px;
+          }
+        }
+        //selve læs mere skriften er et link der sørger for at åbne og lukke on click
+        a {
+          line-height: 24px;
+          text-decoration: underline;
+          color: $steelgrey;
+        }
+      }
+      //fedback besked når item lagt i kurv
+      .feedback-msg-kurv {
+        border: 0.5px solid $coal;
+        padding: 10px;
+        margin-bottom: 10px;
+        p {
+          font-size: $font-s-p;
+          font-style: $font-style-italic;
+          color: $bloodorange;
+          span {
+            color: $coal;
+            font-size: $font-s-lille-p;
+          }
+        }
+      }
+      //Læg i indkøbskurv
+      .cta-btn {
+        margin-bottom: 30px;
+        @media (min-width: 762px) {
+          margin-bottom: 50px;
+        }
+      }
+    }
+    //Del denne vare med dine venner tekst + svg's
+    aside.share-content {
+      .some-svg {
+        display: flex;
+        gap: 4px;
+        padding-bottom: 100px;
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+  //Nederste section med "andre så også", og så 4 vinylprodukter
+  .produkt-forslag-section {
+    margin-bottom: 100px;
+    h2 {
+      font-size: $font-s-h2-mob;
+      @media (min-width: 1240px) {
+        font-size: $font-s-h2-web;
+      }
+    }
+    //Container der holder produkterne
+    .produkt-wrapper {
+      margin: 0px 0px 100px 0px;
+      //fjernelse af basic styling på a tag
+      a {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
+//Billedet på produkt kortet (i andre så også)
+.produktbillede {
+  width: 100%;
+}
+//Styling for de collapsibles de er på singleview
+.collapsible-top {
+  background-color: $offwhite;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  @media (min-width: 762px) {
+    max-width: 500px;
+  }
+  label,
+  button {
+    background-color: $offwhite;
+    color: $coal;
+  }
+}
+
+.content {
+  padding: 0.5rem;
+  hr {
+    @media (min-width: 762px) {
+      margin-inline-end: 2%;
+    }
+  }
+  p {
+    @media (min-width: 762px) {
+      inline-size: 500px;
+      margin-bottom: 0px 0px 10px 0px;
+    }
+  }
+}
+.content-parent {
+  height: 0px;
+  overflow: hidden;
+  transition: height ease 0.9s;
+}
+
+.content-show {
+  height: 200px;
+}
+.next-page-btn-box {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 13%;
+  }
+}

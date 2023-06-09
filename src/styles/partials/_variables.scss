@@ -1,0 +1,51 @@
+//VARIABLES
+//Colors
+$offwhite: #fdfdfd;
+$softsmoke: #f0f0f0;
+$steelgrey: #4f4f4f;
+$bloodorange: #fc612d;
+$coal: #141414;
+$steelblue: #016586;
+$beachyellow: #f8ffa7;
+$grassgreen: #006115;
+$warninggold: #e0901a;
+$skyblue: #e4f8ff;
+$mintgreen: #e7ffe7;
+$velvetpurple: #f0ddff;
+$linkblue: #5c77ff;
+
+//font
+$font-path: "../assets/font/"; // Stien til fontmappe
+$font-regular: "os_regular.woff2"; // Filnavn for den regulære vægttype
+$font-family: "OS Regular", sans-serif;
+
+@font-face {
+  font-family: $font-family;
+  src: url("#{$font-path}#{$font-regular}") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+$font-weight-bold: 700;
+$font-weight-semib: 600;
+$font-style-italic: italic;
+
+//specifikke tekststyles
+
+//font-sizes desktop + fælles
+$font-s-p: 1rem;
+$font-s-h1-web: 2.44125rem;
+$font-s-h2-web: 1.953125rem;
+$font-s-h3-web: 1.25rem;
+$font-s-h4-web: $font-s-p;
+$font-s-lille-p: 0.8rem;
+//font-sizes mobil
+$font-s-h1-mob: $font-s-h2-web;
+$font-s-h2-mob: 1.5625rem;
+$font-s-h3-mob: $font-s-h3-web;
+$font-s-h4-mob: $font-s-p;
+//andre font-size variabler
+$font-s-navlink: $font-s-h3-web;
+$font-s-btn-txt: $font-s-p;
+$font-s-lille-product-banner-txt: 0.511875rem;
+$font-s-stor-product-banner-txt: 0.64rem;
+$font-s-link: $font-s-p;

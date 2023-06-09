@@ -1,0 +1,837 @@
+//import af vores variabler (farver, font, mv.)
+@import "partials/variables";
+/* EN SMULE GENERAL STYLING */
+//sørger for at vores rootfontsize er 16px,
+//og at alt tekst er af den valgte font family
+:root {
+  font-size: 16px;
+  font-family: $font-family;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $offwhite;
+  scroll-behavior: smooth;
+}
+main {
+  max-width: 1240px; //indholdet kan ikke blive større end
+  margin: auto; //centrerer indholdet, og laver whitespace
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $coal;
+  cursor: pointer;
+}
+button {
+  border: none;
+  font-size: $font-s-btn-txt;
+  font-family: $font-family;
+  cursor: pointer;
+}
+p {
+  line-height: 1.5;
+}
+//back to top
+.back-to-top {
+  background-color: transparent;
+  position: fixed;
+  right: 1rem;
+  bottom: 7rem;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+  transition: opacity 0.5s;
+}
+
+//søgefelt
+.input-og-btn {
+  display: flex;
+  /*   align-items: baseline; */
+  margin: 0 20px 20px 20px;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.forslag {
+  display: flex;
+  flex-direction: column;
+  a {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      li {
+        padding: 5px;
+        color: $steelblue;
+        margin-left: 25px;
+        font-weight: $font-weight-semib;
+      }
+    }
+  }
+}
+
+.search-input {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 10px;
+  width: 100%;
+  border: 0.5px solid black;
+  border-radius: none;
+  /*   margin-bottom: 10px; */
+}
+.search-input:focus {
+  outline: 0.5px solid $bloodorange;
+}
+
+.search-button {
+  background-color: $offwhite;
+  border: 0.5px solid black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: $coal;
+  /*   background-image: url("../assets/svg/search_FILL0_wght400_GRAD0_opsz48.svg");
+  background-position: center;
+  background-size: cover; */
+  cursor: pointer;
+}
+
+////////////////////////////////////////////////////////////////////////
+//
+//LANDINGPAGE STYLING
+//
+/* HEROSECTION */
+.hero-section {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  background-color: $coal;
+  background-image: url("../assets/svg/soundwave_1920X1080.svg");
+  background-size: cover;
+  background-repeat: none;
+  padding-bottom: 50px;
+  //desktop tilpasning af layout
+  @media (min-width: 762px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  //'splash' billede af de fire vinyler
+  .top-img {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    img {
+      width: 50%;
+      //desktop tilpasning
+      @media (min-width: 762px) {
+        width: 80%;
+      }
+    }
+  }
+  @media (min-width: 762px) {
+    .top-img:hover {
+      animation: vinylPlade 5s ease 0s infinite alternate-reverse forwards;
+      @keyframes vinylPlade {
+        0% {
+          transform: rotate(0);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+  //hersection tekst
+  .hero-txt {
+    @media (min-width: 762px) {
+      margin-right: 50px;
+    }
+    h1 {
+      font-size: $font-s-h1-mob;
+      color: $offwhite;
+      margin: 25px;
+      line-height: 1.21875;
+      text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+      @media (min-width: 762px) {
+        margin: 25px 25px 25px 0px;
+      }
+      @media (min-width: 1240px) {
+        font-size: $font-s-h1-web;
+      }
+    }
+    p {
+      font-size: $font-s-p;
+      color: $offwhite;
+      margin: 25px;
+      text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+      @media (min-width: 762px) {
+        margin: 25px 25px 25px 0px;
+      }
+    }
+  }
+  //herosection call to action btn (Vinyler)
+  .cta-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    //desktop tilpasning
+    @media (min-width: 762px) {
+      justify-content: flex-start;
+      margin-right: 50px;
+      margin-top: 25px;
+    }
+  }
+}
+
+/* UDVALGTE KATEGORIER SECTION */
+//sektion på landingpage, hvor produkt ikonerne leder til de respektive produktsider
+.udvalgte-kategorier {
+  margin-bottom: 50px;
+  //overskrift i sektionen
+  .heading {
+    margin: 50px 25px 25px 25px;
+    h2 {
+      font-size: $font-s-h2-mob;
+      color: $coal;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      @media (min-width: 1240px) {
+        font-size: $font-s-h2-web;
+      }
+    }
+    p {
+      font-size: $font-s-p;
+    }
+    //desktop tilpasning
+    @media (min-width: 1240px) {
+      margin-left: 0px;
+    }
+  }
+  //container der holder de fire kategori 'cards'
+  .cat-wrapper {
+    /*     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); */ //grid fravalgt til fordel for flex, da det ligger sig bedre
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 25px;
+    //særlig mobil tilpasning
+    @media (min-width: 768px) {
+      margin: 25px;
+    }
+
+    //den enkelte kategori boks
+    .cat {
+      flex: 1 0 200px; //en basis width på 200px, metoden svarer til grid repeat minmax
+      background-color: $softsmoke;
+      padding: 70px 0px 50px 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url("../assets/svg/imusicpattern.svg");
+      /*       background-size: cover; */
+      //container til selve produkt ikonerne
+      .img-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 20px;
+        //produktikonets størrelse
+        img {
+          width: 70px;
+          height: 70px;
+        }
+        //lidt padding til bogen for at den aligner ordentligt
+        .bog {
+          padding-top: 15px;
+        }
+      }
+    }
+    //produktknappens container
+    .btn-wrapper {
+      margin-top: auto;
+      display: flex;
+      button {
+        color: $coal;
+      }
+    }
+  }
+}
+
+/* APPETIZER SECTIONS (de to sektioner, hvor den ene leder til vinyler, og den anden leder til pladespillere) */
+//billedet fra butikken (og af pladespilleren selvom det ikke er fra butikken)
+.store-img {
+  margin: 0;
+  padding: 0;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+//højre kolonne med butiks billedet (sat som baggrund for at fylde hele boksen ud)
+.butik-img {
+  background-image: url("../assets/img/butik.webp");
+  background-size: cover;
+  background-position: center;
+  height: 375px;
+  @media (min-width: 762px) {
+    height: auto;
+  }
+}
+//venstre kolonne med pladespiller billedet (sat som baggrund for at fylde hele boksen ud)
+.pladespiller-img {
+  background-image: url("../assets/img/pladespiller.webp");
+  background-size: cover;
+  background-position: center;
+  height: 375px;
+  @media (min-width: 762px) {
+    height: auto;
+  }
+}
+//tekst container (og den samme container som classerne nedenunder er tilkoblet)
+.store-txt-wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+//den ene (butik boks) baggrund
+.background1 {
+  background-color: $coal;
+  background-image: url("../assets/svg/soundwave_1920X1080.svg");
+  background-size: cover;
+  background-position: center;
+}
+//den anden (pladespiller boks) baggrund
+.background2 {
+  background-color: $coal;
+  background-image: url("../assets/svg/soundwave_reversed.svg");
+  background-size: cover;
+  background-position: center;
+}
+//teksten inderboks, og tekstens farve
+.store-txt {
+  margin: 50px;
+  color: $offwhite;
+  h3 {
+    font-size: $font-s-h2-mob;
+    text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+    @media (min-width: 1240px) {
+      font-size: $font-s-h2-web;
+    }
+  }
+  p {
+    text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+  }
+}
+//den første boks' (butik boksen)
+.appetizer1 {
+  margin-bottom: 50px;
+}
+//desktop tilpasning
+@media (min-width: 762px) {
+  .appetizer1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 50px;
+    .store-img {
+      order: 2;
+    }
+  }
+  .appetizer2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* HVORFOR HANDLE HER - SECTION */
+//hvorfor handle her - container
+.shop-here {
+  background-color: $softsmoke;
+  margin: 0;
+  padding-bottom: 50px;
+  margin-bottom: 100px;
+  background-image: url("../assets/svg/imusicpattern.svg");
+  h3 {
+    padding-top: 50px;
+    margin: 50px;
+    font-size: $font-s-h2-mob;
+    @media (min-width: 1240px) {
+      font-size: $font-s-h2-web;
+    }
+  }
+}
+//container der wrapper den enkelte "grund" / kort til at handle her
+.shop-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 50px;
+  //det enkelte kort
+  .shop-card {
+    flex: 1 0 250px;
+    display: flex; /* Tilføj denne linje */
+    flex-direction: column; /* Tilføj denne linje */
+    gap: 8px;
+    h4,
+    p {
+      margin: 0;
+    }
+    h4 {
+      padding-top: 20px;
+      padding-bottom: 10px;
+
+      @media (min-width: 1240px) {
+        font-size: $font-s-h3-web;
+      }
+    }
+    p {
+      padding-bottom: 10px;
+      //desktop tilpasning
+      @media (min-width: 762px) {
+        inline-size: 250px;
+      }
+    }
+  }
+}
+
+//flueben svg
+.cls-1 {
+  fill: none;
+  stroke: #026687;
+  stroke-width: 4.88px;
+}
+//flueben wrapper
+.ico-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  @media (min-width: 762px) {
+  }
+  img.flueben {
+    width: 30px;
+    height: 30px;
+  }
+}
+/* */
+////////////////////////////////////////////////////
+/* GAVEKORT PAGE */
+.gift-card-form {
+  background-image: url(../assets/svg/soundwave_1920X1080.svg);
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  margin-bottom: 100px;
+  @media (min-width: 950px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .gift-txt {
+    color: $offwhite;
+    @media (min-width: 1240px) {
+      /*     padding-top: 110px; */
+      margin: 100px;
+    }
+    h1 {
+      font-size: $font-s-h1-mob;
+      color: $offwhite;
+      line-height: 1.21875;
+      text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+      margin: 25px;
+      @media (min-width: 1240px) {
+        font-size: $font-s-h1-web;
+        margin: 0px 25px 25px 0px;
+      }
+    }
+    p {
+      text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+      margin: 25px;
+      @media (min-width: 762px) {
+        margin: 25px;
+      }
+      @media (min-width: 1240px) {
+        margin: 0px;
+      }
+      .gift-link {
+        color: $linkblue;
+        font-style: $font-style-italic;
+        font-size: $font-s-p;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  //den faktiske form
+  .gavekort-form {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    padding: 25px;
+    @media (min-width: 762px) {
+      max-width: 500px;
+      padding: 50px;
+    }
+    background-color: $softsmoke;
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 50px;
+
+      label {
+        font-weight: bold;
+        color: $coal;
+      }
+      input {
+        -webkit-appearance: none;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+      }
+      input:focus {
+        outline: 1px solid $bloodorange;
+      }
+    }
+  }
+
+  .error-message {
+    color: $bloodorange;
+  }
+}
+
+.feedback-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  background-color: $coal;
+  p {
+    font-size: $font-s-p;
+    color: $coal;
+    margin: 25px;
+    background-color: $softsmoke;
+    padding: 50px;
+
+    @media (min-width: 762px) {
+      inline-size: 800px;
+    }
+  }
+  //container der holder gavekort svg
+  .gift-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //animation ved køb af gavekort
+    .giftcard {
+      width: 108px;
+      height: 108px;
+      animation: giftAnimation 5s linear 1;
+      @keyframes giftAnimation {
+        0% {
+          transform: rotate(0deg) scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: rotate(360deg) scale(1.5);
+          opacity: 1;
+        }
+        100% {
+          transform: rotate(720deg) scale(0.5);
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////
+/* GODE PRISER PAGE */
+//hero sektion
+.gode-priser-hero {
+  background-image: url(../assets/svg/soundwave_1920X1080.svg);
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 50px;
+  @media (min-width: 1240px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .video-fig-wrapper {
+    @media (min-width: 1240px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 100px;
+      /*       padding-top: 100px; */
+      padding-top: 0px;
+    }
+    figcaption {
+      padding-top: 25px;
+      color: $offwhite;
+      font-size: $font-s-lille-p;
+      margin: 25px;
+      @media (min-width: 1240px) {
+        margin: 5px;
+      }
+    }
+    padding-top: 50px;
+    @media (min-width: 762px) {
+    }
+    .video-container {
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      position: relative;
+      height: 0;
+      margin: 25px;
+      @media (min-width: 1240px) {
+        margin: 0;
+      }
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  //tekst i herosektion
+  .hero-txt {
+    color: $offwhite;
+    @media (min-width: 1240px) {
+      /*     padding-top: 110px; */
+      margin: 100px;
+    }
+    h1 {
+      font-size: $font-s-h1-mob;
+      line-height: 1.21875;
+      text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+      @media (min-width: 1240px) {
+        font-size: $font-s-h1-web;
+      }
+    }
+    p {
+      text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+      margin: 25px;
+      @media (min-width: 762px) {
+        margin: 25px;
+      }
+      @media (min-width: 1240px) {
+        margin: 0px;
+      }
+    }
+
+    //herosektion CTA ('deltag') knap
+    .cta-btn-wrapper {
+      display: flex;
+      justify-content: center;
+      padding-top: 25px;
+      margin: 25px;
+      //desktop tilpasning
+      @media (min-width: 762px) {
+        justify-content: flex-start;
+        margin: 25px;
+      }
+      @media (min-width: 1240px) {
+        justify-content: flex-start;
+        margin: 0px;
+      }
+    }
+  }
+}
+//tilbuds sektion
+.tilbud {
+  background-color: $softsmoke;
+  //tilbuds overskrift og p
+  .txt {
+    padding-top: 15px;
+    margin: 25px;
+    h2 {
+      font-size: $font-s-h2-mob;
+      @media (min-width: 1240px) {
+        font-size: $font-s-h2-web;
+      }
+    }
+  }
+  //container der wrapper de to tilbudsblokke (vinyler, k-pop)
+  .tilbud-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-bottom: 50px;
+    text-align: center;
+    //desktop tilpasning
+    @media (min-width: 762px) {
+      margin: 25px;
+    }
+    //vinyltilbud blok
+    .vinyl-tilbud {
+      background-image: url(../assets/img/tilbudbaggrund1.webp);
+      background-size: cover;
+      background-position: center;
+      flex: 1 0 300px;
+      display: flex; /* Tilføj denne linje */
+      flex-direction: column; /* Tilføj denne linje */
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      color: $offwhite;
+      padding: 30px;
+      button {
+        color: $offwhite;
+      }
+      //desktop tilpasning
+      @media (min-width: 762px) {
+        padding: 60px;
+      }
+    }
+    //k-pop tilbuds blok
+    .kpop-tilbud {
+      background-image: url(../assets/img/tilbudbaggrund2.webp);
+      background-size: cover;
+      background-position: center;
+      flex: 1 0 300px;
+      display: flex; /* Tilføj denne linje */
+      flex-direction: column; /* Tilføj denne linje */
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+      color: $offwhite;
+      color: $offwhite;
+      padding: 30px;
+
+      button {
+        color: $offwhite;
+      }
+    }
+  }
+}
+//fast lav pris sektion
+.fast-lav-pris {
+  background-color: $softsmoke;
+  margin-bottom: 50px;
+  padding: 0px 30px 50px 30px;
+  @media (min-width: 762px) {
+    margin-bottom: 100px;
+  }
+  //overskrift
+  .heading {
+    padding-top: 15px;
+    h2 {
+      font-size: $font-s-h2-mob;
+      color: $coal;
+
+      @media (min-width: 1240px) {
+        font-size: $font-s-h2-web;
+      }
+    }
+    //desktop tilpasning
+    @media (min-width: 1240px) {
+      margin: 0;
+    }
+  }
+  //kategori container
+  .cat-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 25px;
+    //desktop tilpasning
+    @media (min-width: 762px) {
+      margin: 0;
+    }
+    //den enkelte kategori boks
+    .cat {
+      flex: 1 0 200px;
+      background-color: $softsmoke;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url(../assets/svg/imusicpattern.svg);
+      //fast lav pris kategori ikonet
+      img {
+        width: 50%;
+        align-items: center;
+        padding-bottom: 25px;
+        padding-top: 25px;
+      }
+      //særlig tilpasning af film ikonet
+      .film {
+        width: 44%;
+      }
+    }
+  }
+  .btn-wrapper {
+    button {
+      color: $coal;
+    }
+  }
+}
+
+//////////////////////////////////////
+//Error page
+.error-page {
+  padding: 50px;
+  background-image: url("../assets/svg/soundwave_1920X1080.svg");
+  background-size: cover;
+  background-position: center;
+  h1 {
+    margin: 25px;
+    color: $offwhite;
+    font-size: $font-s-h1-mob;
+    line-height: 1.21875;
+    @media (min-width: 762px) {
+      inline-size: 600px;
+    }
+  }
+
+  a {
+    color: $offwhite;
+    margin: 25px;
+  }
+  a:hover {
+    color: $bloodorange;
+  }
+  padding-bottom: 100px;
+}
+.construction-wrapper {
+  animation: construction 4s ease 0s infinite normal forwards;
+  @keyframes construction {
+    0%,
+    100% {
+      transform: translateX(0%);
+      transform-origin: 50% 50%;
+    }
+
+    15% {
+      transform: translateX(-30px) rotate(-6deg);
+    }
+
+    30% {
+      transform: translateX(15px) rotate(6deg);
+    }
+
+    45% {
+      transform: translateX(-15px) rotate(-3.6deg);
+    }
+
+    60% {
+      transform: translateX(9px) rotate(2.4deg);
+    }
+
+    75% {
+      transform: translateX(-6px) rotate(-1.2deg);
+    }
+  }
+}

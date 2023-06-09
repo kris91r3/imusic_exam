@@ -1,0 +1,246 @@
+@import "partials/variables"; //import af stylesheet, hvor vi har vores variabler, nu kan vi også bruge dem her
+
+//Nested styling. Dvs. at de elementer
+//der er i vores HTMl struktur, kan opstilles på samme måde
+//her, og gør sig så gælende de konkrete steder
+//fordele ved at neste styling: Samlet set hjælper muligheden for at neste SASS styling efter HTML-strukturen med at skabe en mere struktureret, genbrugelig og fleksibel stylingløsning. Det kan forbedre læsbarheden, organiseringen og vedligeholdelsen af stylingen, hvilket resulterer i en mere effektiv og produktiv udviklingsproces.
+////////////////////////////////////
+
+//root-layout der er eksisterende på alle sider
+.root-layout {
+  header {
+    //generelle nav indstillinger + position til at placere submenuen
+    nav {
+      position: relative;
+      background-color: $steelgrey;
+      margin: 0;
+      padding: 0;
+      a {
+        color: $offwhite;
+        font-size: $font-s-navlink;
+      }
+      //submenu / dropdown styles mutual
+      //submenu trigger er 'produkter' punktet i navigationen
+      .submenu-trigger {
+        cursor: pointer;
+        padding: 8px 5px 8px 5px;
+        color: $offwhite;
+        font-size: $font-s-navlink;
+        transition: transform 0.3s ease-in-out;
+        transition: height ease 0.9s;
+      }
+      //selve submenuen
+      .submenu {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 30%;
+        left: 10px;
+        background: #f0f0f0;
+        min-width: 150px;
+        list-style: none;
+        padding: 5px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        z-index: 9999;
+      }
+      //når submenuen er åben
+      .submenu.open {
+        opacity: 1;
+        visibility: visible;
+      }
+      //menupunkterne i dropdown
+      .submenu li {
+        padding: 1px;
+        margin: 0px 8px 0px 8px;
+        @media (min-width: 762px) {
+          padding: 1px;
+          margin: 0px 2px 0px 2px;
+        }
+      }
+      .submenu a {
+        color: black;
+        text-decoration: none;
+        background-color: $offwhite;
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+      //når der er klikket ind på et produkt
+      .submenu a.active {
+        color: $bloodorange;
+      }
+      //anden placering af submenu i desktop
+      @media (min-width: 762px) {
+        .submenu {
+          left: 25%;
+        }
+      }
+      .vis-mere-ico {
+        text-align: center;
+      }
+    }
+    //desktop navigation
+    .desktop-menu nav {
+      display: flex;
+      justify-content: space-evenly;
+
+      a {
+        display: grid;
+        padding: 8px 5px 8px 5px;
+      }
+      .submenu-trigger svg {
+        fill: $offwhite;
+      }
+      .submenu {
+        top: 40%;
+      }
+    }
+    //mobil navigation
+    .mobil-menu nav {
+      border-top: 1px solid black;
+      padding: 8px;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      display: flex;
+      flex: 1 1 100%;
+      flex-flow: column;
+      background: #f0f0f0;
+      a {
+        display: flex;
+        flex-flow: column;
+        background-color: $offwhite;
+        padding: 8px 5px 8px 5px;
+        margin-bottom: 8px;
+        color: black;
+      }
+      .submenu-trigger {
+        background-color: $offwhite;
+        color: black;
+        margin-bottom: 8px;
+      }
+    }
+  }
+  //burger button
+  .button-wrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+    .burger-btn {
+      background-color: transparent;
+      border: none;
+      justify-self: end;
+      padding-right: 15px;
+    }
+  }
+  //top naigation
+  //usp linje (& ikoner) synlig på desktop
+  .top-nav {
+    p {
+      font-size: $font-s-lille-p;
+    }
+    display: flex;
+    justify-content: space-between;
+    background-color: $softsmoke;
+    //elementer der plpaceres til venstre på desktop
+    .left {
+      width: 100vw;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    //elementer der plpaceres til højre på desktop
+    .right {
+      display: flex;
+      place-content: end;
+      gap: 10px;
+      padding-right: 15px;
+      img {
+        width: 15%;
+      }
+      img.flag {
+        width: 8%;
+      }
+      svg {
+        width: 10%;
+      }
+    }
+  }
+  //center / midter navigation
+  //(logo, søgefelt, kurv) generelle indstillinger
+  .center-nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 30px 15px 30px 15px;
+    .center-nav-logo {
+      .sort-logo {
+        width: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+  //brødkrummer
+  .breadcrumbs {
+    max-width: 1240px;
+    margin: 25px 25px 50px 25px;
+    @media (min-width: 1240px) {
+      margin: auto;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  }
+  //alle brødkrummer inside placere sig inline-block
+  .breadcrumbs > * {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  //indsættelse af tegn efter hver krumme
+  .breadcrumbs .crumb:after {
+    content: ">";
+    margin-left: 10px;
+  }
+  //sørger for der ikke er et >tegn efter den sidste krumme
+  .breadcrumbs .crumb:last-child:after {
+    display: none;
+  }
+  .crumb {
+    color: $coal;
+    font-style: $font-style-italic;
+    font-size: $font-s-p;
+    cursor: pointer;
+  }
+  .krumme:hover {
+    color: $bloodorange;
+  }
+  //enkelte media indstillinger
+  @media (max-width: 762px) {
+    .top-nav {
+      display: none;
+    }
+    .root-layout {
+      padding-top: 15px;
+    }
+  }
+  @media (min-width: 762px) {
+    .center-nav {
+      //top 1. right 2. bottom 3. left. 4
+      padding: 20px 30px 20px 30px;
+    }
+  }
+}
+/* elementer der ikke er nested i rootlayout  */
+//seperat class der fjerner menuvisning, når der er klikket på et punkt
+.clickedMenu {
+  display: none;
+}
+//søgefelt og kurv wrapper, så de sammen kan placeres til højre i desktop udgaven
+.wrapper {
+  display: flex;
+  .sogefelt {
+    height: 2rem;
+    width: 2rem;
+    place-self: end;
+    border: 1px solid black;
+  }
+}

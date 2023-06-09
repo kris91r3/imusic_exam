@@ -1,0 +1,29 @@
+//import af variabler
+@import "partials/variables";
+
+//den blå 'køb her' knap på produkterne
+.buybtn {
+  background-color: $steelblue;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.2);
+  width: 140px;
+  padding: 7px 10px 7px 10px;
+  color: $offwhite;
+  font-size: $font-s-btn-txt;
+  text-transform: uppercase;
+}
+// helt orange call to action
+.cta-btn {
+  width: 140px;
+  padding: 7px 10px 7px 10px;
+  background-color: $bloodorange;
+  color: $coal;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.2);
+}
+//orange border produkt knap
+.cat-btn {
+  width: 140px;
+  padding: 4px 7px 4px 7px;
+  border: 5px solid $bloodorange;
+  filter: drop-shadow(1px 4px 6px rgba(0, 0, 0, 0.2));
+  background-color: transparent;
+}
