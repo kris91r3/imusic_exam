@@ -76,11 +76,11 @@ function Hjem() {
           <AppetizerTwo></AppetizerTwo>
         </section>
         <section className="shop-here">
-          <h3>Hvorfor handle her?</h3>
+          <h2>Hvorfor handle her?</h2>
           <div className="shop-card-wrapper">
             <div className="shop-card">
               <div className="ico-wrapper">
-                <h4>Nordens største udvalg</h4>
+                <h3>Nordens største udvalg</h3>
                 <img src={flueBen} className="flueben" alt="flueben i cirkel" />
               </div>
 
@@ -92,7 +92,7 @@ function Hjem() {
 
             <div className="shop-card">
               <div className="ico-wrapper">
-                <h4>Fri fragt v. DKK 699,00</h4>
+                <h3>Fri fragt v. DKK 699,00</h3>
                 <img src={flueBen} className="flueben" alt="flueben i cirkel" />
               </div>
               <p>
@@ -103,7 +103,7 @@ function Hjem() {
 
             <div className="shop-card">
               <div className="ico-wrapper">
-                <h4>Godkendt</h4>
+                <h3>Godkendt</h3>
                 <img src={flueBen} className="flueben" alt="flueben i cirkel" />
               </div>
               <p>
@@ -114,7 +114,7 @@ function Hjem() {
 
             <div className="shop-card">
               <div className="ico-wrapper">
-                <h4>God service</h4>{" "}
+                <h3>God service</h3>{" "}
                 <img src={flueBen} className="flueben" alt="flueben i cirkel" />
               </div>
               <p>

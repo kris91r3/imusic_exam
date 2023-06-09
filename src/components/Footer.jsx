@@ -35,7 +35,7 @@ function Footer() {
         <footer>
           <div className="row-one">
             <div className="information">
-              <p className="heading">Information</p>
+              <h3>Information</h3>
               <p>Faq</p>
               <p>Handelsbetingelser</p>
               <p>Cookie- & privatlivspolitik</p>
@@ -44,7 +44,7 @@ function Footer() {
               <p>Butikken</p>
             </div>
             <div className="some">
-              <p>Sociale medier</p>
+              <h3>Sociale medier</h3>
               <div className="some-ikoner">
                 <a
                   href="https://www.instagram.com/imusicdk/?hl=da"

@@ -355,7 +355,7 @@ p {
   padding-bottom: 50px;
   margin-bottom: 100px;
   background-image: url("../assets/svg/imusicpattern.svg");
-  h3 {
+  h2 {
     padding-top: 50px;
     margin: 50px;
     font-size: $font-s-h2-mob;
@@ -376,11 +376,11 @@ p {
     display: flex; /* Tilføj denne linje */
     flex-direction: column; /* Tilføj denne linje */
     gap: 8px;
-    h4,
+    h3,
     p {
       margin: 0;
     }
-    h4 {
+    h3 {
       padding-top: 20px;
       padding-bottom: 10px;
 

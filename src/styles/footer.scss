@@ -19,10 +19,10 @@
         line-height: normal;
       }
       //overskrift "information"
-      .heading {
+      h3 {
         margin: 0;
-        padding-top: 50px;
-        font-size: $font-s-h3-mob;
+        color: $offwhite;
+        font-size: $font-s-h3-web;
         font-weight: $font-weight-semib;
       }
     }
@@ -31,9 +31,9 @@
       margin-bottom: 50px;
       cursor: pointer;
       //"SoMe"
-      p {
+      h3 {
         color: $offwhite;
-        font-size: $font-s-h3-mob;
+        font-size: $font-s-h3-web;
         font-weight: $font-weight-semib;
         margin: 0;
         margin-bottom: 8px;
