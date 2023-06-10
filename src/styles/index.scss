@@ -218,9 +218,13 @@ p {
     justify-content: center;
     gap: 8px;
     margin: 25px;
+
     //særlig mobil tilpasning
     @media (min-width: 768px) {
       margin: 25px;
+      @media (min-width: 1240px) {
+        margin: 0px;
+      }
     }
 
     //den enkelte kategori boks
