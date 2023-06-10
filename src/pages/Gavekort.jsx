@@ -117,10 +117,8 @@ function GiftCardForm() {
                 </a>{" "}
                 , cd’er, tilbehør og meget mere. Gavekortet er den perfekte
                 løsning, det nemt og bekvemmeligt, alt du skal gøre er at
-                udfylde formen, og du får straks tilsendt gavekortet til mail
-                din mail, nemmere bliver det ikke. Klik ind og deltag du har
-                mulighed for at vinde et gavekort på 1000 kroner, som kan bruges
-                på hele imusic.dk!
+                udfylde formen, og du får det straks tilsendt til din mail,
+                nemmere bliver det ikke.
               </p>
             </div>
             <form className="gavekort-form" onSubmit={handleSubmit}>
